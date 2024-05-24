@@ -1,5 +1,6 @@
 module.exports = {
-  embed: require('./src/embed.js'),
+  removeHiddenText: require('./src/removeHiddenText.js'),
+  removeMarkdown: require('./src/removeMarkdown.js'),
   emojiId: require('./src/emojiId.js'),
-  removeMarkdown: require('./src/removeMarkdown.js')
+  embed: require('./src/embed.js')
 }
