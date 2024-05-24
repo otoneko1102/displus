@@ -1,4 +1,4 @@
-# discord-ext
+# displus
 A package that adds functions for Discord.
 
 ## Usage
