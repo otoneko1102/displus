@@ -1,8 +1,10 @@
 function removeMarkdown(input) {
   if (!input || typeof input !== 'string') throw new Error('input must be string.');
   const markdownPatterns = [
+    /\*\*\*(.*?)\*\*\*/g, // ***bold & italic***
     /\*\*(.*?)\*\*/g, // **bold**
     /\*(.*?)\*/g, // *italic*
+    /___(.*?)___/g, // ___underline & italic___
     /__(.*?)__/g, // __underline__
     /_(.*?)_/g, // _italic_
     /~~(.*?)~~/g, // ~~strikethrough~~

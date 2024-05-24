@@ -1,5 +1,5 @@
 # displus
-A package that adds functions for Discord.
+A package that add functions for Discord.
 
 ## Usage
 ```js
@@ -8,6 +8,7 @@ const displus = require('displus');
 consle.log(displus.removeMarkdown('**Hello World!**')); // 'Hello World!'
 consle.log(displus.removeMarkdown('Hello __World!__')); // 'Hello World!'
 consle.log(displus.removeMarkdown('`Hello` __World!__')); // 'Hello World!'
+console.log(displus.removeMarkdown('<https://example.com/>')) // 'https://example.com/'
 consle.log(displus.removeMarkdown('Hello [World](https://example.com/)!')); // 'Hello World!'
 console.log(displus.emojiId('<:check:1240681820815888505>')); // '1240681820815888505'
 console.log(displus.emojiId('<a:loading:1240671243875913819>')); // '1240671243875913819'
