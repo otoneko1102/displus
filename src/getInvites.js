@@ -3,7 +3,7 @@ function getInvites(input, url) {
   if (url !== undefined && typeof url !== 'boolean') throw new Error('url must be a boolean.');
 
   const regex = /discord(?:app\.com\/invite|\.(?:com\/invite|gg))\/([^\s]+)/gi;
-  const matches = [];
+  let matches = [];
   let match;
   while ((match = regex.exec(input)) !== null) {
     if (url) {
@@ -12,6 +12,7 @@ function getInvites(input, url) {
       matches.push(match[1]);
     }
   }
+  if (matches.length == 0) matches = null;
 
   return matches;
 }
