@@ -1,6 +1,6 @@
 function embed(input, hide) {
   if (!input || typeof input !== 'object') throw new Error('input must be object.');
-  if (hide && typeof hide !== 'boolean') throw new Error('input must be boolean.');
+  if (hide && typeof hide !== 'boolean') throw new Error('hide must be boolean.');
   const url = "https://appembed.netlify.app/e?";
   const p = [];
   if (input.author) p.push(`author=${encodeURIComponent(input.author)}`);

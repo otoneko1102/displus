@@ -14,7 +14,10 @@ console.log(displus.removeMarkdown('Hello <https://example.com/> !')) // 'Hello 
 console.log(displus.removeMarkdown('Hello [World](https://example.com/)!')); // 'Hello World!'
 console.log(displus.emojiId('<:check:1240681820815888505>')); // '1240681820815888505'
 console.log(displus.emojiId('<a:loading:1240671243875913819>')); // '1240671243875913819'
-const object = {
+const invitationText = "There are invitation links! https://discord.gg/yKW8wWKCnS https://discord.com/invite/YnNTMh6mT6";
+console.log(displus.getInvites(invitationText)); // ['yKW8wWKCnS', 'YnNTMh6mT6']
+console.log(displus.getInvites(invitationText, true)); // ['discord.gg/yKW8wWKCnS', 'discord.com/invite/YnNTMh6mT6']
+const embedObject = {
   author: 'This is an embed author!',
   title: 'This is an embed title!',
   redirect: 'https://example.com/',
@@ -22,8 +25,8 @@ const object = {
   color: '#777000',
   image: 'https://i.imgur.com/EJOjIMC.jpeg'
 };
-console.log(displus.embed(object)); // 'EMBED URL'
-console.log(displus.embed(object, true)); // '[⁠︎]( EMBED URL )'
+console.log(displus.embed(embedObject)); // 'EMBED URL'
+console.log(displus.embed(embedObject, true)); // '[⁠︎]( EMBED URL )'
 ```
 
 ## Get Support

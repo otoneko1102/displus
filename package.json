@@ -1,6 +1,6 @@
 {
   "name": "displus",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A package that add functions for Discord.",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,8 @@
     "extension",
     "emoji",
     "embed",
-    "markdown"
+    "markdown",
+    "invite"
   ],
   "author": "otoneko.",
   "license": "ISC",
