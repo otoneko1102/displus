@@ -1,5 +1,5 @@
-async function replaceMentions(client, message) {
-  let replacedContent = message.content;
+async function replaceMentions(client, guild, text) {
+  let replacedContent = text;
 
   replacedContent = await replaceAsync(replacedContent, /<#(\d+)>/g, async (match, channelId) => {
     const channel = await client.channels.cache.get(channelId);
@@ -7,7 +7,7 @@ async function replaceMentions(client, message) {
   });
 
   replacedContent = await replaceAsync(replacedContent, /<@&(\d+)>/g, async (match, roleId) => {
-    const role = await message.guild.roles.cache.get(roleId);
+    const role = await guild.roles.cache.get(roleId);
     return role ? `@${role.name}` : '!';
   });
 
