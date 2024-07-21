@@ -29,8 +29,8 @@ client.on('messageCreate', async message => {
     color: '#777000',
     image: 'https://i.imgur.com/EJOjIMC.jpeg'
   };
-  console.log(displus.embed(embedObject)); // 'EMBED URL'
-  console.log(displus.embed(embedObject, true)); // '[⁠︎]( EMBED URL )'
+  console.log(displus.embed(embedObject)); // '[⁠︎]( EMBED URL )'
+  console.log(displus.embed(embedObject, true)); // 'EMBED URL'
 });
 ```
 
