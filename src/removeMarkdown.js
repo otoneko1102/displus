@@ -11,7 +11,7 @@ function removeMarkdown(input) {
     /```(?:[^\n]+)?\n([\s\S]*?)\n```/g, // ```code block```
     /`(.*?)`/g, // `inline code`
     /\|\|(.*?)\|\|/g, // ||spoiler||
-    /<(?![@#]|:[^:]+:|\/\w+:\w+>)(.*?)>/g, // <link>
+    /<(?![@#]|a:[^:]+:\d+|:[^:]+:|\/\w+:\w+>)(.*?)>/g, // <link>
     /\[([^\]]+)\]\([^\)]+\)/g // [Hyper](link)
   ];
   const result = markdownPatterns.reduce((acc, pattern) => acc.replace(pattern, '$1'), input);
