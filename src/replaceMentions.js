@@ -11,7 +11,7 @@ async function replaceMentions(client, guild, text) {
     return role ? `@${role.name}` : '!';
   });
 
-  replacedContent = await replaceAsync(replacedContent, /<@(\d+)>/g, async (match, userId) => {
+  replacedContent = await replaceAsync(replacedContent, /<@!?(\d+)>/g, async (match, userId) => {
     const user = await client.users.fetch(userId);
     return user ? `@${user.tag}` : '!';
   });
