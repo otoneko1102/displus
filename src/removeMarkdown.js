@@ -1,6 +1,7 @@
-function removeMarkdown(input) {
+function removeMarkdown(input, extra = false) {
   if (!input || typeof input !== 'string') throw new Error('input must be string.');
-  const markdownPatterns = [
+  if (typeof extra !== 'boolean') throw new Error('extra must be boolean.')
+    const markdownPatterns = [
     /\*\*\*(.*?)\*\*\*/g, // ***bold & italic***
     /\*\*(.*?)\*\*/g, // **bold**
     /\*(.*?)\*/g, // *italic*
@@ -14,8 +15,17 @@ function removeMarkdown(input) {
     /<(?![@#]|a:[^:]+:\d+|:[^:]+:|\/\w+:\w+>)(.*?)>/g, // <link>
     /\[([^\]]+)\]\([^\)]+\)/g // [Hyper](link)
   ];
-  const result = markdownPatterns.reduce((acc, pattern) => acc.replace(pattern, '$1'), input);
-  return result.replace(/<:>/g, ':');
+  const result = (markdownPatterns.reduce((acc, pattern) => acc.replace(pattern, '$1'), input)).replace(/<:>/g, ':');
+  if (!extra) return result;
+
+  const extraMarkdownPatterns = [
+    /^\s*-\s+(?=\S)/gm, // - list
+    /^\s*\*\s+(?=\S)/gm, // * list
+    /^\s*#{1,3}\s+(?=\S)/gm, // # highlight
+    /^\s*?-#\s+(?=\S)/gm // -# highlight
+  ];
+
+  return extraMarkdownPatterns.reduce((acc, pattern) => acc.replace(pattern, ''), result);
 }
 
 module.exports = removeMarkdown;
