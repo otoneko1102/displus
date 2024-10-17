@@ -17,6 +17,7 @@ client.on('messageCreate', async message => {
   console.log(displus.removeMarkdown('Hello [World](https://example.com/)!')); // 'Hello World!'
   console.log(displus.removeMarkdown('# Hello World!', true)); // 'Hello World!'
   console.log(await displus.replaceMentions(client, guild, '<@957885295251034112>')); // '@otoneko.'
+  console.log(displus.rawCode('```js\nconsole.log("Hello World!")\n```')); // 'console.log("Hello World!")
   console.log(displus.emojiId('<:check:1240681820815888505>')); // '1240681820815888505'
   console.log(displus.emojiId('<a:loading:1240671243875913819>')); // '1240671243875913819'
   const invitationText = "There are invitation links! https://discord.gg/yKW8wWKCnS https://discord.com/invite/YnNTMh6mT6";
